@@ -172,18 +172,22 @@
                         <div class="card-body">
                             @if(session('user-quiz.section') == 'membaca')
                             <div class="d-flex flex-wrap justify-content-center align-items-center answer-map-container mb-3">
-                                @for($i=1;$i<=$data->total();$i++)  
-                                    <a href="{{$data->url($i)}}" class="btn m-1 btn-map {{ $data->currentPage() == $i ? 'btn-primary' : (session('user-quiz.answer-'.$section.'.'.$i.'.0.option') ? 'btn-success' : 'btn-default') }}">{{$i}}</a>
+                                @for($i=1; $i<=$data->total(); $i++)
+                                    <a href="{{$data->url($i)}}" class="btn m-1 btn-map {{ $data->currentPage() == $i ? 'btn-primary' : (session('user-quiz.answer-membaca.'.$i.'.0.option') ? 'btn-success' : 'btn-default') }}">{{$i}}</a>
                                 @endfor
                             </div>
                             @else
+                            @php
+                                $offset = 20;
+                            @endphp
                             <div class="d-flex flex-wrap justify-content-center align-items-center answer-map-container mb-3">
-                                @for($i=21; $i <= $data->total() + 20; $i++)
-                                    <a href="{{$data->url($i - 20)}}" class="btn m-1 btn-map {{ $data->currentPage() == $i ? 'btn-primary' : (session('user-quiz.answer-'.$section.'.'.$i.'.0.option') ? 'btn-success' : 'btn-default') }}">{{$i}}</a>
+                                @for($i=$offset + 1; $i <= $offset + $data->total(); $i++)
+                                    <a href="{{$data->url($i - $offset)}}" class="btn m-1 btn-map {{ $data->currentPage() == $i ? 'btn-primary' : (session('user-quiz.answer-mendengarkan.'.'.'.$i.'.0.option') ? 'btn-success' : 'btn-default') }}">{{$i}}</a>
                                 @endfor
                             </div>
-                            @endif                            
+                            @endif
                         </div>
+                        
                         <div class="card-footer d-flex justify-content-center">
                             <div class="row ml-3">
                                 <div class="row col-12">
