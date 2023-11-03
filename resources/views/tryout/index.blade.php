@@ -60,16 +60,16 @@
                 <div class="col-12 col-md-9">
                     <input type="hidden" name="quiz_id" id="quiz-id" value="{{$quiz->id}}">
                     @foreach ($data as $key => $question)
-                    <div class="card">
-                        <div class="card-header">
-                            @if(session('user-quiz.section') == 'membaca')
-                            <h4> 문제 번호<!-- Soal Nomor--> {{ $data->currentPage() }}</h4>
+                     <div class="card">
+                         <div class="card-header">
+                             @if(session('user-quiz.section') == 'membaca')
+                             <h4> 문제 번호<!-- Soal Nomor--> {{ $data->currentPage() }}</h4>
                                 
-                            @else
-                            <h4> 문제 번호<!-- Soal Nomor--> {{ $data->currentPage() + 20 }}</h4>
+                             @else
+                             <h4> 문제 번호<!-- Soal Nomor--> {{ $data->currentPage() + 20 }}</h4>
                                 
-                            @endif
-                        </div>
+                             @endif
+                         </div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <textarea id="questionTextarea" class="form-control" style="border: none;height:150px" readonly>{{$question['question']}}</textarea>
